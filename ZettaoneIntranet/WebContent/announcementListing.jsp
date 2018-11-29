@@ -225,7 +225,7 @@
 									</td> 
 									</table>
 										<div align="center">
-											<p style="color: green" align="center">${deletesuccessmessage}</p>
+											<p style="color: green" align="center">${announce}</p> 
 											<table class="table">
 												<thead class="thead-dark">
 													<tr>

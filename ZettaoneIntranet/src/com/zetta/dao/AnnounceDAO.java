@@ -1,10 +1,11 @@
 package com.zetta.dao;
 
-import java.sql.Connection;
+import java.sql.Connection; 
 import java.util.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 
@@ -22,7 +23,9 @@ public class AnnounceDAO {
 			ps=con.prepareStatement("INSERT INTO announcement(title,announcement,date) VALUES(?,?,?)");
 			ps.setString(++count, "title");
 			ps.setString(++count, "announcement");
-			ps.setDate(++count, (java.sql.Date) new Date()); 
+			/*ps.setDate(++count, new Date());*/
+			ps.setDate(++count, new java.sql.Date(Calendar.getInstance().getTime().getTime())); 
+			/*java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());*/
 			ps.executeUpdate();
 			con.close();
 		} catch(Exception e) {
@@ -45,7 +48,7 @@ public class AnnounceDAO {
 			ps=con.prepareStatement("UPDATE announcement SET announcement=? where announce_id=?");
 			ps.setString(++count, "title");
 			ps.setString(++count, "announcement");
-			ps.setDate(++count, (java.sql.Date) new Date());  
+			ps.setDate(++count, new java.sql.Date(Calendar.getInstance().getTime().getTime())); 
 			ps.executeUpdate();
 			con.close();
 		}catch(Exception e) {
@@ -71,7 +74,7 @@ public class AnnounceDAO {
 				AnnounceBean ab=new AnnounceBean();
 				ab.setTitle(rs.getString("title"));
 				ab.setAnnouncement(rs.getString("announcement"));
-				ab.setData(rs.getDate("data"));
+				ab.setData(rs.getString("data"));
 				list.add(ab);
 			}
 			con.close();
@@ -99,7 +102,7 @@ public class AnnounceDAO {
 			while(rs.next()) {
 				ab.setTitle(rs.getString("title"));
 				ab.setAnnouncement(rs.getString("announcement"));
-				ab.setData(rs.getDate("data"));
+				ab.setData(rs.getString("data"));
 			}
 			con.close();
 		} catch(Exception e) {

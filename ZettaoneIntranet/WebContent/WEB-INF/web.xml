@@ -17,5 +17,10 @@
       <url-pattern>*.jsp</url-pattern>
       <scripting-invalid>true</scripting-invalid>
     </jsp-property-group>
+    <jsp-property-group>
+        <url-pattern>*.tag</url-pattern>                
+        <scripting-invalid>false</scripting-invalid>
+    </jsp-property-group>
   </jsp-config>
+  
 </web-app>

@@ -2,8 +2,9 @@
 <%@ page import="java.util.List"%>
 <%@ page import="com.zetta.dao.AnnounceDAO"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    pageEncoding="ISO-8859-1"%> 
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  
+
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -70,8 +71,10 @@
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 
-<body>
-     
+
+
+ <jsp:body> 
+  
     <!-- Start Left menu area -->
     <div class="left-sidebar-pro">
         <nav id="sidebar" class="">
@@ -201,59 +204,29 @@
                             </ul>
                             <div id="myTabContent" class="tab-content custom-product-edit">
                                 <div class="product-tab-list tab-pane fade active in" id="description">
-                                
-                                <form action="" method="post" onsubmit="return ValidateForm(this);">
-                                                     
-														<script type="text/javascript">
-															function ValidateForm(frm) { 
-																if (frm.mobile.value.length!=10){
-																	alert('Required 10 digits, match requested format!');
-																	frm.mobile.focus();
-																	return false;
-																	}
-																if (frm.location.value !="Bangalore" && frm.location.value !="Krishnagiri") {
-																	alert('Select Location!');
-																	frm.location.focus();
-																	return false;
-																}
-																if (frm.mobile.value.length!=10){
-																	alert('Required 10 digits, match requested format!');
-																	frm.mobile.focus();
-																	return false;
-																	}
-																} 
-															</script>
+                               
+                                <form action="" method="post"> 
 											
                                     <div class="row">
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                           <% AnnounceDAO adao=new AnnounceDAO();
-                                           	  List<AnnounceBean> list = adao.getAnnouncements();
-                                           	  request.setAttribute("announcement", list); 
-                                           	 %>
-                                           <c:forEach items="${announcement}" var="announce">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"> 
+                                         	 <%!
+                                             	AnnounceDAO adao = new AnnounceDAO();
+                                             	List<AnnounceBean> list = adao.getAnnouncements(); 
+                                             %> 
+											<% 
+                                             	request.setAttribute("announcement", list);
+                                             %>
+                                             <c:forEach items="${announcement}" var="announce">
                                             <div class="review-content-section">
                                                 <div class="chat-discussion" style="height: auto"> 
                                                       <div class="message">
                                                             <a class="message-author full-right" href="#"> ${announce.title} </a><br />	
                                                             <span class="message-date"> ${announce.date} </span>
                                                             <span class="message-content">   ${announce.announcement}  </span> 
-                                                      </div> 
-                                                    
-                                                    <!-- <div class="chat-message">
-														<div class="profile-hdtc">
-															 <img class="message-avatar" src="img/contact/3.jpg" alt="">
-														</div>
-                                                        <div class="message">
-                                                            <a class="message-author" href="#"> Michael Smith </a>
-                                                            <span class="message-date">  Fri Jan 25 2015 - 11:12:36 </span>
-                                                            <span class="message-content">
-																	There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.
-																	</span>
-                                                        </div>
-                                                    </div> --> 
+                                                      </div>  
                                                 </div>
                                             </div>
-                                           </c:forEach>
+                                           </c:forEach> 
                                         </div>
                                     </div>
                                 </div>  
@@ -388,6 +361,6 @@
 		============================================ -->
     <script src="js/main.js"></script>
      
-</body>
+</jsp:body>
 
 </html>

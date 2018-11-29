@@ -1,4 +1,4 @@
- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+  <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!doctype html>
@@ -181,7 +181,7 @@
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="product-payment-inner-st">
                            <center> <ul id="myTabedu1" class="tab-review-design">
-                                <li class="active"><a href="">New Announcement</a></li> 
+                                <li class="active"><a href="">Modify Announcement</a></li> 
                             </ul></center>
                             <form action="employeeDirectory" method="post"> 
 								<div class="payment-adress"> 
@@ -195,7 +195,7 @@
                                             <div class="review-content-section">
                                                 <div id="dropzone1" class="pro-ad">
                                                      <form action="AnnounceServlet" method="post" >
-                                                      <p style="color:green" align="center">${announce}</p>  
+                                                      <p style="color:green" align="center">${editannounce}</p>  
                                                         <div class="row">
                                                         	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12"></div>
                                                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"> 
@@ -214,7 +214,7 @@
                                                         <div class="row">
                                                             <div class="col-lg-12">
                                                                 <div class="payment-adress"> 
-                                                                     <button class="btn btn-primary waves-effect waves-light" type="submit" name="submit" value="announce">Submit</button>
+                                                                     <button class="btn btn-primary waves-effect waves-light" type="submit" name="submit" value="editannounce">Submit</button>
                                 									<button class="btn btn-primary waves-effect waves-light" type="reset" name="reset" value="Reset">Clear</button>
                                                                 </div>
                                                             </div>
@@ -310,9 +310,7 @@
     <!-- main JS
 		============================================ -->
     <script src="js/main.js"></script>
-    <!-- tawk chat JS
-		============================================ -->
-    <script src="js/tawk-chat.js"></script>
+     
 </body>
 
 </html>
