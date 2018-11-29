@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- Bootstrap CSS
 		============================================ -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">   
     <!-- owl.carousel CSS
 		============================================ -->
     <link rel="stylesheet" href="css/owl.carousel.css">
@@ -156,8 +156,7 @@
                                                 <li class="nav-item"><a href="knowledgebase.jsp" class="nav-link">Knowledge Base</a>
                                                 </li>
                                                 <li class="nav-item"><a href="calendar.jsp" class="nav-link">Company Calendar</a>
-                                                </li>
-                                                   
+                                                </li>   
                                             </ul>
                                         </div>
                                     </div>
@@ -168,7 +167,7 @@
                                                 <li class="nav-item">
                                                     <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
 															 
-															<span class="admin-name">Hi  ${username}</span>
+															<span class="admin-name">Hi  ${name}</span>
 															<i class="fa fa-angle-down edu-icon edu-down-arrow"></i>
 														</a>
                                                     <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
@@ -194,61 +193,81 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                         <div class="hpanel widget-int-shape responsive-mg-b-30">
-                            <a href="admin_register.jsp">
+                             <form action="adminPage" method="post"> 
+                            <Button name="submit" id="submit" value="adminListing">
                             <div class="panel-body">
                                 <div class="stats-title pull-left">
-                                    <h4>Create Admin</h4>
+                                    <h4>Manage Admin</h4>
                                 </div>
                                 <div class="stats-icon pull-right">
                                     <i class="educate-icon educate-apps"></i>
                                 </div>
                                 <div class="m-t-xl widget-cl-1"> 
                                     <small>
-										The Admin has access to all administrative tasks &amp; can: Create, Edit, Update &amp; Delete projects.	 
+										The Admin has access to all administrative tasks &amp; can: Create, Edit, Update &amp; Delete admin users.	 
 									</small>
                                 </div>
                             </div>
-                            </a>
+                            </Button>
+                           <!--  <input type="hidden" name="submit" id="submit" value="adminListing"> -->
+                           </form>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                         <div class="hpanel widget-int-shape responsive-mg-b-30">
-                         <a href="add_employee.jsp">
-                            <div class="panel-body"> 
-                                <div class="stats-title pull-left">
-                                    <h4>Add Employee</h4>
-                                </div>
-                                <div class="stats-icon pull-right">
-                                    <i class="educate-icon educate-professor"></i>
-                                </div>
-                                <div class="m-t-xl widget-cl-2"> 
-                                    <small>
-	 									You can Add New Employee details as well as Edit employee details &amp; Drop employee from the record.
-									</small>
-                                </div>
-                            </div>
-                            </a>
+                            <form action="employeeDirectory" method="post"> 
+	                            <Button name="submit" id="submit" value="employeeListing">
+	                            <div class="panel-body">
+	                                <div class="stats-title pull-left">
+	                                    <h4>Manage Employee</h4>
+	                                </div>
+	                                <div class="stats-icon pull-right">
+	                                    <i class="educate-icon educate-professor"></i>
+	                                </div>
+	                                <div class="m-t-xl widget-cl-1"> 
+	                                    <small>
+											You can Add New Employee details as well as Edit employee details &amp; Drop employee from the record.	 
+										</small>
+	                                </div>
+	                            </div>
+	                            </Button>
+	                           <!--  <input type="hidden" name="submit" id="submit" value="adminListing"> -->
+                           </form>
                         </div>
-                    </div>
+                    </div> 
+                    
+                    
+                    
                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                        <div class="hpanel widget-int-shape responsive-mg-b-30 res-tablet-mg-t-30 dk-res-t-pro-30">
-                         <a href="add_organizationchart.jsp">
-                            <div class="panel-body">
-                                <div class="stats-title pull-left">
-                                    <h4>Add Company Chart</h4>
-                                </div>
-                                <div class="stats-icon pull-right">
-                                    <i class="educate-icon educate-library"></i>
-                                </div>
-                                <div class="m-t-xl widget-cl-3"> 
-                                    <small>
-										You can add organization chart as well as drop organization chart as of every update may applied.
-									</small>
-                                </div>
-                            </div>
-                          </a>
+                        <div class="hpanel widget-int-shape responsive-mg-b-30">
+                        
+                        
+                           <form action="orgChart" method="post"> 
+	                            <Button name="submit" id="submit" value="orgListing">
+	                            <div class="panel-body">
+	                                <div class="stats-title pull-left">
+	                                    <h4>Add Company Chart</h4>
+	                                </div>
+	                                <div class="stats-icon pull-right">
+	                                    <i class="educate-icon educate-professor"></i>
+	                                </div>
+	                                <div class="m-t-xl widget-cl-1"> 
+	                                    <small>
+											You can add organization chart as well as drop organization chart as of every update may applied.	 
+										</small>
+	                                </div>
+	                            </div>
+	                            </Button>
+	                           <!--  <input type="hidden" name="submit" id="submit" value="adminListing"> -->
+                           </form>
+                           
+                           
                         </div>
-                    </div>
+                    </div>  
+                    
+                    
+                    
+                    
                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                         <div class="hpanel widget-int-shape responsive-mg-b-30 res-tablet-mg-t-30 dk-res-t-pro-30">
                          <a href="add_qms.jsp">

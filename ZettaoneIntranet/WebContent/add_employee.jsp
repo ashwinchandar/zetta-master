@@ -78,8 +78,8 @@
     <div class="left-sidebar-pro">
         <nav id="sidebar" class="">
             <div class="sidebar-header">
-                <a href="home.jsp"><img class="main-logo" src="img/logo/logo.png" alt="" /></a>
-                <strong><a href="home.jsp"><img src="img/logo/logosn.png" alt="" /></a></strong>
+                <a href="index.jsp"><img class="main-logo" src="img/logo/logo.png" alt="" /></a>
+                <strong><a href="index.jsp"><img src="img/logo/logosn.png" alt="" /></a></strong>
             </div>
             <div class="left-custom-menu-adp-wrap comment-scrollbar">
                 <nav class="sidebar-nav left-sidebar-menu-pro">
@@ -120,7 +120,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="logo-pro">
-                        <a href="home.jsp"><img class="main-logo" src="img/logo/logo.png" alt="" /></a>
+                        <a href="index.jsp"><img class="main-logo" src="img/logo/logo.png" alt="" /></a>
                     </div>
                 </div>
             </div>
@@ -142,7 +142,7 @@
                                     <div class="col-lg-8 col-md-12 col-sm-6 col-xs-12">
                                         <div class="header-top-menu tabl-d-n">
                                             <ul class="nav navbar-nav mai-top-nav">
-                                                <li class="nav-item"><a href="home.jsp" class="nav-link">Home</a>
+                                                <li class="nav-item"><a href="index.jsp" class="nav-link">Home</a>
                                                 </li>
                                                 <li class="nav-item"><a href="employeedirectory.jsp" class="nav-link">Employee Directory</a>
                                                 </li>
@@ -154,28 +154,7 @@
                                                 </li> 
                                             </ul>
                                         </div>
-                                    </div>
-                                    <%-- <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
-                                        <div class="header-right-info">
-                                            <ul class="nav navbar-nav mai-top-nav header-right-menu">
-                                                  
-                                                <li class="nav-item">
-                                                    <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
-															 
-															<span class="admin-name">Hi  ${username}</span>
-															<i class="fa fa-angle-down edu-icon edu-down-arrow"></i>
-														</a>
-                                                    <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
-                                                         
-                                                        <li><a href="#"><span class="edu-icon edu-locked author-log-ic"></span>Log Out</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                 
-                                            </ul>
-                                        </div>
-                                    </div> --%>
-                                    
+                                    </div>  
                                 </div>
                             </div>
                         </div>
@@ -204,58 +183,77 @@
                             <ul id="myTabedu1" class="tab-review-design">
                                 <li class="active"><a href="">Add Employee</a></li> 
                             </ul>
+                            <form action="employeeDirectory" method="post"> 
+								<div class="payment-adress"> 
+                                     <button class="btn btn-primary waves-effect waves-light col-md-offset-10 col-md-2" type="submit" name="submit" value="employeeListing">Back to Admin List</button>
+      							</div>
+							</form>
                             <div id="myTabContent" class="tab-content custom-product-edit">
                                 <div class="product-tab-list tab-pane fade active in" id="description">
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                             <div class="review-content-section">
                                                 <div id="dropzone1" class="pro-ad">
-                                                     <form action="employeedirectory" method="post" onsubmit="return ValidateForm(this);">
-															 
+                                                     <form action="employeeDirectory" method="post" onsubmit="return ValidateForm(this);">
+                                                      <p style="color:green" align="center">${empsucmsg}</p> 
+                                                     <p style="color:red" align="center">${deletesuccessmessage}</p>
+														<script type="text/javascript">
+															function ValidateForm(frm) { 
+																if (frm.mobile.value.length!=10){
+																	alert('Required 10 digits, match requested format!');
+																	frm.mobile.focus();
+																	return false;
+																	}
+																if (frm.location.value !="Bangalore" && frm.location.value !="Krishnagiri") {
+																	alert('Select Location!');
+																	frm.location.focus();
+																	return false;
+																}
+																if (frm.mobile.value.length!=10){
+																	alert('Required 10 digits, match requested format!');
+																	frm.mobile.focus();
+																	return false;
+																	}
+																} 
+															</script>
                                                         <div class="row">
                                                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                             	<div class="form-group">
-                                                                     <input name="emp_card_no" type="text" class="form-control" placeholder="Employee Card No." value="${userbean.empCardNo}" required>
+                                                                     <input name="emp_card_no" type="text" class="form-control" placeholder="Employee Card No." value="${eb.emp_card_no}" required>
                                                                 </div>
                                                                 <div class="form-group"> 
-                                                                <input name="emp_name" type="text" class="form-control" placeholder="Full Name" value="${userbean.name}" required>
+                                                                <input name="name" type="text" class="form-control" placeholder="Full Name" value="${eb.name}" required>
                                                                 </div> 
                                                                 <div class="form-group">
-                                                                    <input name="dob" id="finish" type="text" class="form-control" placeholder="Date of Birth" required>
+                                                                    <input name="dob" id="dob" type="date" class="form-control" placeholder="Date of Birth" value="${eb.dob}"required>
                                                                 </div>
                                                                 <div class="form-group">
-                                                                    <input name="department" type="text" class="form-control" placeholder="Department" required>
-                                                                </div> 
-                                                                <div class="form-group">
-                                                                    <input name="designation" type="text" class="form-control" placeholder="Designation" required>
-                                                                </div> 
+                                                                    <input name="department" type="text" class="form-control" placeholder="Department" value="${eb.department}" required>
+                                                                </div>  
                                                             </div>
                                                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"> 
+                                                             	 <div class="form-group">
+                                                                    <input name="designation" type="text" class="form-control" placeholder="Designation" value="${eb.designation}" required>
+                                                                </div> 
                                                             	 <div class="form-group">
-                                                                    <input name="email" type="text" class="form-control" placeholder="Email" required>
+                                                                    <input name="email" type="text" class="form-control" placeholder="Email" value="${eb.email}" required>
                                                                 </div> 
                                                                 <div class="form-group">
-                                                                	<input name="mobile" type="number" class="form-control" pattern="[1-9]{1}[0-9]{9}" title="Enter 10 digit mobile number" placeholder="Mobile No." value="${userbean.mobile}" required>
+                                                                	<input name="mobile" type="number" class="form-control" pattern="[1-9]{1}[0-9]{9}" title="Enter 10 digit mobile number" placeholder="Mobile No." value="${eb.mobile}" required>
                                                                 </div> 
                                                                 <div class="form-group">
-                                                                    <select name="location" class="form-control" required>
+                                                                    <select name="location" class="form-control" value="${eb.location}" required>
 																			<option value="none" selected="" disabled="">Select Location</option>
-																			<option value="bangalore">Bangalore</option>
-																			<option value="krishnagiri">Krishnagiri</option> 
+																			<option value="Bangalore">Bangalore</option>
+																			<option value="Krishnagiri">Krishnagiri</option> 
 																	</select>
-                                                                </div>  
-                                                                 <div class="form-group">
-                                                                    <input name="password1" type="password" class="form-control" placeholder="Password" required>
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <input name="password2" type="password" class="form-control" placeholder="Confirm Password" required>
-                                                                </div> 
+                                                                </div>   
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-lg-12">
                                                                 <div class="payment-adress"> 
-                                                                     <button class="btn btn-primary waves-effect waves-light" type="submit" name="submit" value="register">Submit</button>
+                                                                     <button class="btn btn-primary waves-effect waves-light" type="submit" name="submit" value="eregister">Submit</button>
                                 									<button class="btn btn-primary waves-effect waves-light" type="reset" name="reset" value="Reset">Clear</button>
                                                                 </div>
                                                             </div>

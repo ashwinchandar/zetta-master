@@ -24,7 +24,7 @@ public class AdminDAO {
 			con = DBConnection.getConnection();
 			ps = con.prepareStatement("INSERT INTO admin_register(admin_card_no,admin_name,dob,department,designation,email,mobile,location,role,password1) VALUES(?,?,?,?,?,?,?,?,?,?)");
 			ps.setString(++count, ab.getAdmin_card_no());
-			ps.setString(++count, ab.getName());
+			ps.setString(++count, ab.getName().trim());
 			ps.setDate(++count, new Date(DateUtil.getDateFromString(ab.getDob()).getTime()));
 			ps.setString(++count, ab.getDepartment());
 			ps.setString(++count, ab.getDesignation());
@@ -32,8 +32,41 @@ public class AdminDAO {
 			ps.setBigDecimal(++count, ab.getMobile()!=null && !ab.getMobile().trim().isEmpty()?new BigDecimal(ab.getMobile().trim()):new BigDecimal("0"));
 			ps.setString(++count, ab.getLocation());
 			ps.setString(++count, ab.getRole().trim());
-			ps.setString(++count, ab.getPassword1()); 
+			ps.setString(++count, ab.getPassword1().trim()); 
 			ps.executeUpdate();
+			con.close(); 
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(ps != null) {
+				try {
+					ps.close();
+				} catch (SQLException e) { 
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	
+	public void updateAdmin(AdminBean ab) {
+		int count=0;
+		try {
+			con = DBConnection.getConnection();
+			ps = con.prepareStatement("update admin_register set admin_name=?,dob=?,department=?,designation=?,email=?,mobile=?,location=?,role=?,password1=? where admin_card_no =?");
+			
+			ps.setString(++count, ab.getName().trim());
+			ps.setDate(++count, new Date(DateUtil.getDateFromString(ab.getDob()).getTime()));
+			ps.setString(++count, ab.getDepartment());
+			ps.setString(++count, ab.getDesignation());
+			ps.setString(++count, ab.getEmail());
+			ps.setBigDecimal(++count, ab.getMobile()!=null && !ab.getMobile().trim().isEmpty()?new BigDecimal(ab.getMobile().trim()):new BigDecimal("0"));
+			ps.setString(++count, ab.getLocation());
+			ps.setString(++count, ab.getRole().trim());
+			ps.setString(++count, ab.getPassword1().trim()); 
+			ps.setString(++count, ab.getAdmin_card_no());
+			//System.out.println("psupdate: "+ps.toString());
+			ps.executeUpdate();
+			
 			con.close(); 
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -57,10 +90,12 @@ public class AdminDAO {
 			ps=con.prepareStatement("SELECT * FROM admin_register WHERE admin_card_no=? and password1=?");
 			ps.setString(1, adminid);
 			ps.setString(2, pass);
+			System.out.println("ps in get adin" +ps.toString());
 			ResultSet rs=ps.executeQuery();
-			while(rs.next()) { 
+			while(rs.next()) {
+				//System.out.println("tHeed");
 				ab.setAdmin_card_no(rs.getString("admin_card_no"));
-				ab.setName(rs.getString("name"));
+				ab.setName(rs.getString("admin_name"));
 				ab.setDob(rs.getString("dob"));
 				ab.setDepartment(rs.getString("department"));
 				ab.setDesignation(rs.getString("designation"));
@@ -95,7 +130,7 @@ public class AdminDAO {
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				ab.setAdmin_card_no(rs.getString("admin_card_no"));
-				ab.setName(rs.getString("name"));
+				ab.setName(rs.getString("admin_name"));
 				ab.setDob(rs.getString("dob"));
 				ab.setDepartment(rs.getString("department"));
 				ab.setDesignation(rs.getString("designation"));
@@ -153,7 +188,7 @@ public class AdminDAO {
 			while(rs.next()) {
 				AdminBean ab = new AdminBean();
 				ab.setAdmin_card_no(rs.getString("admin_card_no"));
-				ab.setName(rs.getString("name"));
+				ab.setName(rs.getString("admin_name"));
 				ab.setDob(rs.getString("dob"));
 				ab.setDepartment(rs.getString("department"));
 				ab.setDesignation(rs.getString("designation"));
@@ -163,6 +198,7 @@ public class AdminDAO {
 				ab.setLocation(rs.getString("location"));
 				ab.setRole(rs.getString("role"));
 				ab.setPassword1(rs.getString("password1")); 
+				list.add(ab);
 			}
 			con.close();
 		}catch(Exception e) {
