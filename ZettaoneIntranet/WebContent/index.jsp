@@ -1,5 +1,9 @@
+<%@ page import="com.zetta.bean.AnnounceBean"%>
+<%@ page import="java.util.List"%>
+<%@ page import="com.zetta.dao.AnnounceDAO"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -219,17 +223,21 @@
 																	}
 																} 
 															</script>
+											
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                           
+                                           <% AnnounceDAO adao=new AnnounceDAO();
+                                           	  List<AnnounceBean> list = adao.getAnnouncements();
+                                           	  request.setAttribute("announcement", list); 
+                                           	 %>
+                                           <c:forEach items="${announcement}" var="announce">
                                             <div class="review-content-section">
-                                                <div class="chat-discussion" style="height: auto">
+                                                <div class="chat-discussion" style="height: auto"> 
                                                       <div class="message">
-                                                            <a class="message-author full-right" href="#"> Michael Smith </a><br />	
-                                                            <span class="message-date"> Mon Jan 26 2015 - 18:39:23 </span>
-                                                            <span class="message-content">HeyLorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-															</span> 
-                                                       </div> 
+                                                            <a class="message-author full-right" href="#"> ${announce.title} </a><br />	
+                                                            <span class="message-date"> ${announce.date} </span>
+                                                            <span class="message-content">   ${announce.announcement}  </span> 
+                                                      </div> 
                                                     
                                                     <!-- <div class="chat-message">
 														<div class="profile-hdtc">
@@ -245,7 +253,7 @@
                                                     </div> --> 
                                                 </div>
                                             </div>
-                                            </form>
+                                           </c:forEach>
                                         </div>
                                     </div>
                                 </div>  

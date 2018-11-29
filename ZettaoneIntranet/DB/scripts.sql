@@ -56,3 +56,10 @@ org_id serial PRIMARY KEY,
 title CHARACTER(30),
 org_file bytea
 );
+
+CREATE TABLE announcement(
+announce_id serial PRIMARY KEY,
+title CHARACTER VARYING(30),
+announcement CHARACTER VARYING(200),
+date TIMESTAMP WITH TIME ZONE
+);

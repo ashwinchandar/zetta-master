@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+ <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!doctype html>
@@ -229,38 +229,28 @@
 											<table class="table">
 												<thead class="thead-dark">
 													<tr>
-														<th scope="col">Card No</th>
-														<th scope="col">Name</th>
-														<th scope="col">DOB</th>
-														<th scope="col">Department</th>
-														<th scope="col">Designation</th>
-														<th scope="col">Email</th>
-														<th scope="col">Mobile</th>
-														<th scope="col">Location</th> 
-														<th scope="col"><center>Actions</center></th>
+														<th scope="col">Title</th>
+														<th scope="col">Date</th>
+														<th scope="col">Announcement</th> 
+														<th scope="col">Actions</th>
 													</tr>
 												</thead>
 												<tbody>
-													<c:forEach var="empdetails" items="${list}">
+													<c:forEach var="announce" items="${list}">
 														<tr>
-															<td>${empdetails.emp_card_no}</td>
-															<td>${empdetails.name}</td>
-															<td>${empdetails.dob}</td>
-															<td>${empdetails.department}</td>
-															<td>${empdetails.designation}</td>
-															<td>${empdetails.email}</td>
-															<td>${empdetails.mobile}</td>
-															<td>${empdetails.location}</td> 
+															<td>${announce.title}</td>
+															<td>${announce.date}</td>
+															<td>${announce.announcement}</td> 
 
 															<td>
-																<form action="employeeDirectory" method="post">
-																	<input type="hidden" id="employeeid" name="employeeid" value='${empdetails.emp_card_no}'>
+																<form action="AnnounceServlet" method="post">
+																	<input type="hidden" id="announceid" name="announceid" value='${empdetails.announceid}'>
 																	<button class="btn btn-primary" type="submit" name="submit" value="edit">Edit</button>
 																</form>
 															</td>
 															<td>
-																<form action="employeeDirectory" method="post">
-																	<input type="hidden" id="employeeid" name="employeeid" value='${empdetails.emp_card_no}'>
+																<form action="AnnounceServlet" method="post">
+																	<input type="hidden" id="announceid" name="announceid" value='${empdetails.announceid}'>
 																	<button class="btn btn-primary" type="submit" name="submit" value="delete">Delete</button>
 																</form>
 															</td>
@@ -346,9 +336,7 @@
 	<!-- main JS
 		============================================ -->
 	<script src="js/main.js"></script>
-	<!-- tawk chat JS
-		============================================ -->
-	<script src="js/tawk-chat.js"></script>
+	 
 </body>
 
 </html>
