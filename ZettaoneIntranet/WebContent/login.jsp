@@ -95,7 +95,7 @@
                 </div>
 			</div>
 			<div class="text-center login-footer">
-				<p>Copyright © 2018. All rights reserved by <a href="https://www.zettaone.com/" target="_blank">Zettaone Technology</a></p>
+				<p><a href="index.jsp">Back to Home</a></p>
 			</div>
 		</div>   
     </div>

@@ -1,4 +1,4 @@
-<%@ page import="com.zetta.bean.AnnounceBean"%>
+ <%@ page import="com.zetta.bean.AnnounceBean"%>
 <%@ page import="java.util.List"%>
 <%@ page import="com.zetta.dao.AnnounceDAO"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -63,16 +63,6 @@
 		============================================ -->
     <link rel="stylesheet" href="css/calendar/fullcalendar.min.css">
     <link rel="stylesheet" href="css/calendar/fullcalendar.print.min.css">
-     <!-- x-editor CSS
-		============================================ -->
-    <link rel="stylesheet" href="css/editor/select2.css">
-    <link rel="stylesheet" href="css/editor/datetimepicker.css">
-    <link rel="stylesheet" href="css/editor/bootstrap-editable.css">
-    <link rel="stylesheet" href="css/editor/x-editor-style.css">
-    <!-- normalize CSS
-		============================================ -->
-    <link rel="stylesheet" href="css/data-table/bootstrap-table.css">
-    <link rel="stylesheet" href="css/data-table/bootstrap-editable.css">
     <!-- style CSS
 		============================================ -->
     <link rel="stylesheet" href="style.css">
@@ -162,7 +152,7 @@
                                                 </li>
                                                 <li class="nav-item"><a href="calendar.jsp" class="nav-link">Company Calendar</a>
                                                 </li> 
-                                                <li class="nav-item"><a href="login.jsp" class="nav-link">Login</a>
+                                                <li class="nav-item"><a href="login.jsp" class="nav-link">Logout</a>
                                                 </li>                                              
                                             </ul>
                                         </div>

@@ -1,15 +1,14 @@
-
 <%@ page import="com.zetta.bean.AnnounceBean"%>
 <%@ page import="java.util.List"%>
 <%@ page import="com.zetta.dao.AnnounceDAO"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%> 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  
-
 <!doctype html>
 <html class="no-js" lang="en">
 <%@ include file = "header.jsp" %>
-  <body>
+
+  <body><br>
   		<div class="blog-details-area mg-b-15">
             <div class="container-fluid">
                 <div class="row">

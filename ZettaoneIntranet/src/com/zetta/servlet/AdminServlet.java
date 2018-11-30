@@ -44,10 +44,7 @@ public class AdminServlet extends HttpServlet {
 					request.setAttribute("errormsg","Username or Password is incorrect");
 					request.getRequestDispatcher("login.jsp").forward(request, response); 
 				}
-			}else {
-				request.setAttribute("errormsg","Username or Password is incorrect");
-				request.getRequestDispatcher("login.jsp").forward(request, response); 
-			}  			
+			}   			
 		} else if(submitType.equals("register")) {
 			AdminBean ab = new AdminBean();
 			ab.setAdmin_card_no(adminid);
@@ -105,7 +102,7 @@ public class AdminServlet extends HttpServlet {
 			if(session1 != null) {
 				session1.invalidate();
 			}
-			request.setAttribute("errormsg","You are logged out");
+			request.setAttribute("logout","You are logged out");
 			request.getRequestDispatcher("login.jsp").forward(request, response); 
 		}
 		else {
