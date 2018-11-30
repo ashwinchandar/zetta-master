@@ -328,25 +328,30 @@
                             </a>
                         </div>
                     </div>
+                    
                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                        <div class="hpanel widget-int-shape responsive-mg-b-30 res-tablet-mg-t-30 dk-res-t-pro-30">
-                         <a href="add_announcement.jsp">
-                            <div class="panel-body">
-                                <div class="stats-title pull-left">
-                                    <h4>Add Announcement</h4>
-                                </div>
-                                 <div class="stats-icon pull-right">
-                                    <i class="educate-icon educate-department"></i>
-                                </div>
-                                <div class="m-t-xl widget-cl-3"> 
-                                    <small>
-										You can add organization important announcement as well as drop the announcement.
-									</small>
-                                </div>
-                            </div>
-                          </a>
+                        <div class="hpanel widget-int-shape responsive-mg-b-30">
+                            <form action="AnnouncePage" method="post"> 
+	                            <Button name="submit" id="submit" value="announcementListing">
+	                            <div class="panel-body">
+	                                <div class="stats-title pull-left">
+	                                    <h4>Manage Announcement</h4>
+	                                </div>
+	                                <div class="stats-icon pull-right">
+	                                    <i class="educate-icon educate-department"></i>
+	                                </div>
+	                                <div class="m-t-xl widget-cl-1"> 
+	                                    <small>
+											You can add organization important announcement as well as drop the announcement.	 
+										</small>
+	                                </div>
+	                            </div>
+	                            </Button> 
+                           </form>
                         </div>
                     </div> 
+                    
+                    
                 </div><br /><br /><br /><br /><br /><br /><br /> 
             </div>
         </div>

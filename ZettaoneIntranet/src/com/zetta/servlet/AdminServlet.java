@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.zetta.bean.AdminBean;
 import com.zetta.dao.AdminDAO;
@@ -21,13 +22,14 @@ public class AdminServlet extends HttpServlet {
         super(); 
     } 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		HttpSession session = request.getSession();
 		String adminid = request.getParameter("admin_card_no");
 		String password = request.getParameter("password1");
 		String submitType = request.getParameter("submit");
 		AdminDAO adao = new AdminDAO();
 		if(submitType.equals("login")){ 
 			AdminBean ab = adao.getAdmin(adminid, password); 
+			session.setAttribute("role", ab.getRole());
 			//System.out.println("test");
 			if(ab != null) {
 				if(ab.getRole() != null && ab.getRole().trim().equals("admin")) { 
@@ -98,10 +100,18 @@ public class AdminServlet extends HttpServlet {
 			request.setAttribute("list", list);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("adminListing.jsp");
 			dispatcher.forward(request, response);
-		}else {
+		}else if(submitType.equals("logout")) {
+			HttpSession session1 = request.getSession(true);
+			if(session1 != null) {
+				session1.invalidate();
+			}
+			request.setAttribute("errormsg","You are logged out");
+			request.getRequestDispatcher("login.jsp").forward(request, response); 
+		}
+		else {
 			request.setAttribute("errormsg","Username or Password is incorrect");
 			request.getRequestDispatcher("login.jsp").forward(request, response); 
-		} 
+		}  
 		
 	}  
 }

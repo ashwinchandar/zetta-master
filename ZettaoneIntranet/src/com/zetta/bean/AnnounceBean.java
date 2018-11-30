@@ -2,11 +2,10 @@ package com.zetta.bean;
  
 
 public class AnnounceBean { 
-	
+	private Integer announceid;
 	private String title;
 	private String announcement;
-	private String data;
-	
+	private String date;
 	public String getTitle() {
 		return title;
 	}
@@ -19,13 +18,20 @@ public class AnnounceBean {
 	public void setAnnouncement(String announcement) {
 		this.announcement = announcement;
 	}
-	public String getData() {
-		return data;
+	public String getDate() {
+		return date;
 	}
-	public void setData(String data) {
-		this.data = data;
+	public void setDate(String date) {
+		this.date = date;
+	}
+	public Integer getAnnounceid() {
+		return announceid;
+	}
+	public void setAnnounceid(Integer announceid) {
+		this.announceid = announceid;
 	}
 	
+
 	 
 	 
 }

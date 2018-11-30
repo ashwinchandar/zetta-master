@@ -13,23 +13,26 @@ import com.zetta.bean.AnnounceBean;
 import com.zetta.dao.AnnounceDAO;
 
 
-@WebServlet("/AnnounceServlet")
+@WebServlet("/AnnouncePage")
 public class AnnounceServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L; 
     public AnnounceServlet() {
         super(); 
     }
  
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 
-		String announceid = request.getParameter("title");
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
+		String announce = request.getParameter("announceid");
+		Integer announceid=0;
+		if(announce != null) {
+			  announceid = Integer.parseInt(announce);
+		} 
 		String submitType = request.getParameter("submit");
 		AnnounceDAO adao = new AnnounceDAO();
 		
 		if(submitType.equals("announce")) {
-		AnnounceBean ab = new AnnounceBean();
-		ab.setTitle(announceid);
-		ab.setData(request.getParameter("date"));
+		AnnounceBean ab = new AnnounceBean(); 
+		ab.setTitle(request.getParameter("title"));
+		ab.setDate(request.getParameter("date"));
 		ab.setAnnouncement(request.getParameter("announcement"));
 		adao.insertAnnouncement(ab);
 		request.setAttribute("announce", "Announcement Published.");
@@ -37,16 +40,16 @@ public class AnnounceServlet extends HttpServlet {
 		}
 		else if(submitType.equals("editannounce")) {
 		AnnounceBean ab=new AnnounceBean();
-		ab.setTitle(announceid);
-		ab.setData(request.getParameter("date"));
+		 ab.setAnnounceid(announceid); 
+		ab.setTitle(request.getParameter("title"));
+		ab.setDate(request.getParameter("date"));
 		ab.setAnnouncement(request.getParameter("announcement"));
 		adao.updateAnnouncement(ab);
 		request.setAttribute("editannounce", "Successfully Modified.");
 		request.getRequestDispatcher("editAnnouncement.jsp").forward(request, response);
 		}
-		else if(submitType.equals("edit")) {
-			String announceid1 = request.getParameter("announceid");
-			AnnounceBean ab = adao.editAnnouncement(announceid1);
+		else if(submitType.equals("edit")) { 
+			AnnounceBean ab = adao.editAnnouncement(announceid);
 			request.setAttribute("ab", ab);
 			request.getRequestDispatcher("editAnnouncement.jsp").forward(request, response);
 		}
@@ -55,9 +58,8 @@ public class AnnounceServlet extends HttpServlet {
 			request.setAttribute("list", list);
 			request.getRequestDispatcher("announcementListing.jsp").forward(request, response);
 		}
-		else if(submitType.equals("delete")) {
-			String announceid1 = request.getParameter("announceid");
-			adao.deleteAnnouncement(announceid1);
+		else if(submitType.equals("delete")) { 
+			adao.deleteAnnouncement(announceid);
 			List<AnnounceBean> list = adao.getAnnouncements();
 			request.setAttribute("list", list);
 			request.getRequestDispatcher("announcementListing.jsp").forward(request, response);

@@ -217,7 +217,7 @@
 										</a>
 									</td>
 									<td>
-										<a href="add_employee.jsp"
+										<a href="new_announcement.jsp"
 											class="btn btn-primary m-btn m-btn--custom m-btn--icon col-md-offset-2 col-md-12">
 											<span> <i class="fa fa-plus"></i> <span>Create</span>
 										</span>
@@ -243,14 +243,14 @@
 															<td>${announce.announcement}</td> 
 
 															<td>
-																<form action="AnnounceServlet" method="post">
-																	<input type="hidden" id="announceid" name="announceid" value='${empdetails.announceid}'>
+																<form action="AnnouncePage" method="post">
+																	<input type="hidden" id="announceid" name="announceid" value='${announce.announceid}'>
 																	<button class="btn btn-primary" type="submit" name="submit" value="edit">Edit</button>
 																</form>
 															</td>
 															<td>
-																<form action="AnnounceServlet" method="post">
-																	<input type="hidden" id="announceid" name="announceid" value='${empdetails.announceid}'>
+																<form action="AnnouncePage" method="post">
+																	<input type="hidden" id="announceid" name="announceid" value='${announce.announceid}'>
 																	<button class="btn btn-primary" type="submit" name="submit" value="delete">Delete</button>
 																</form>
 															</td>

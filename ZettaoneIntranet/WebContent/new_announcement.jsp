@@ -183,9 +183,9 @@
                            <center> <ul id="myTabedu1" class="tab-review-design">
                                 <li class="active"><a href="">New Announcement</a></li> 
                             </ul></center>
-                            <form action="employeeDirectory" method="post"> 
+                            <form action="AnnouncePage" method="post"> 
 								<div class="payment-adress"> 
-                                     <button class="btn btn-primary waves-effect waves-light col-md-offset-10 col-md-2" type="submit" name="submit" value="employeeListing">Back to Admin List</button>
+                                     <button class="btn btn-primary waves-effect waves-light col-md-offset-10 col-md-2" type="submit" name="submit" value="announcementListing">Back to Admin List</button>
       							</div>
 							</form>
                             <div id="myTabContent" class="tab-content custom-product-edit">
@@ -194,17 +194,17 @@
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                             <div class="review-content-section">
                                                 <div id="dropzone1" class="pro-ad">
-                                                     <form action="AnnounceServlet" method="post" >
+                                                     <form action="AnnouncePage" method="post" >
                                                       <p style="color:green" align="center">${announce}</p>  
                                                         <div class="row">
                                                         	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12"></div>
                                                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"> 
                                                             	<div class="form-group">
-                                                                     <input name="title" id="title" type="text" class="form-control" placeholder="Title" value="${ab.title}" required>
+                                                                     <input name="title" type="text" class="form-control" placeholder="Title" value="${ab.title}" required>
                                                                 </div>
-                                                                 <div class="form-group">
+                                                                <%--  <div class="form-group">
                                                                     <input name="date" type="date" class="form-control" placeholder="Date" value="${ab.date}" required>
-                                                                </div>
+                                                                </div> --%>
                                                                 <div class="form-group res-mg-t-15">
                                                                     <textarea name="announcement" id="announcement" placeholder="Announcement message" value="${ab.announcement}" required></textarea>
                                                                 </div> 
