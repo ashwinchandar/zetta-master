@@ -2297,6 +2297,21 @@ ul.two-part-sp li{
     margin-top: 15px;
     margin-bottom: 15px;
 }
+.payment-adressz{
+	text-align:center; 
+	padding-top: 100px;
+}
+.payment-adressz button{
+	background:#00ffff;
+	border-color:#006DF0;
+	padding: 100px 0 0 0;
+}
+.payment-adressz button:hover, .payment-adressz button:focus, .payment-adressz button:active, .payment-adressz button:visited, .credit-card-custom a:hover, .credit-card-custom a:focus, .credit-card-custom a:active, .credit-card-custom a:visited, .waves-light:hover, .waves-light:focus, .waves-light:active, .waves-light:visited{
+	background:#006DF0;
+	border-color:#006DF0;
+	outline:none;
+	cursor:pointer; 
+}
 .payment-adress{
 	text-align:center;
 }

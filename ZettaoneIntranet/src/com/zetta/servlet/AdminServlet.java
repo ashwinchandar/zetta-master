@@ -26,8 +26,9 @@ public class AdminServlet extends HttpServlet {
 		String adminid = request.getParameter("admin_card_no");
 		String password = request.getParameter("password1");
 		String submitType = request.getParameter("submit");
-		AdminDAO adao = new AdminDAO();
-		if(submitType.equals("login")){ 
+		System.out.println("SubmitType"+submitType);
+		AdminDAO adao = new AdminDAO(); 
+		if("login".equals(submitType)){ 
 			AdminBean ab = adao.getAdmin(adminid, password); 
 			session.setAttribute("role", ab.getRole());
 			//System.out.println("test");
@@ -45,7 +46,7 @@ public class AdminServlet extends HttpServlet {
 					request.getRequestDispatcher("login.jsp").forward(request, response); 
 				}
 			}   			
-		} else if(submitType.equals("register")) {
+		}   else if ("register".equals(submitType)){
 			AdminBean ab = new AdminBean();
 			ab.setAdmin_card_no(adminid);
 			ab.setName(request.getParameter("name"));  
@@ -61,7 +62,7 @@ public class AdminServlet extends HttpServlet {
 			adao.insertAdmin(ab);
 			request.setAttribute("successMessage","Admin Registered successfully.");
 			request.getRequestDispatcher("admin_register.jsp").forward(request, response); 
-		} else if(submitType.equals("editsubmit")) {
+		} else if("editsubmit".equals(submitType)) {
 			AdminBean ab = new AdminBean(); 
 			ab.setAdmin_card_no(adminid);
 			ab.setName(request.getParameter("name"));  
@@ -77,19 +78,19 @@ public class AdminServlet extends HttpServlet {
 			adao.updateAdmin(ab);
 			request.setAttribute("successMessage","Successfully Edited Admin Record");
 			request.getRequestDispatcher("editAdmin.jsp").forward(request, response); 
-		}else if(submitType.equals("edit")) { 
+		}else if("edit".equals(submitType)) { 
 			String adminid1 = request.getParameter("adminid");
 			AdminBean ab = adao.editAdmin(adminid1);
 			request.setAttribute("ab", ab);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("editAdmin.jsp");
 			dispatcher.forward(request, response); 
-		}else if(submitType.equals("adminListing")) { 
+		}else if("adminListing".equals(submitType)) { 
 			List<AdminBean> list = adao.getAdmins(); 
 			//System.out.println("listing"+list.size()); 
 			request.setAttribute("list", list);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("adminListing.jsp");
 			dispatcher.forward(request, response);
-		}else if(submitType.equals("delete")) {
+		}else if("delete".equals(submitType)) {
 			String adminid1 = request.getParameter("adminid");
 			adao.deleteAdmin(adminid1);
 			request.setAttribute("deletesuccessmessage","Deleted Successfully"); 
@@ -97,7 +98,7 @@ public class AdminServlet extends HttpServlet {
 			request.setAttribute("list", list);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("adminListing.jsp");
 			dispatcher.forward(request, response);
-		}else if(submitType.equals("logout")) {
+		}else if("logout".equals(submitType)) {
 			HttpSession session1 = request.getSession(true);
 			if(session1 != null) {
 				session1.invalidate();

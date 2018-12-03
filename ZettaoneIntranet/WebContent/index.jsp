@@ -1,9 +1,11 @@
-<%@ page import="com.zetta.bean.AnnounceBean"%>
-<%@ page import="java.util.List"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
+<%@ page import="com.zetta.bean.AnnounceBean"%> 
 <%@ page import="com.zetta.dao.AnnounceDAO"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%> 
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  
+ 
 <!doctype html>
 <html class="no-js" lang="en">
 <%@ include file = "header.jsp" %>
@@ -18,8 +20,7 @@
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="latest-blog-single blog-single-full-view">
                                         <div class="blog-image">
-                                            <img src="img/org/raw.png" alt="" />
-												 
+                                            <img src="img/org/raw.png" alt="" />  
                                         </div>
                                         <!-- <div class="blog-details blog-sig-details"> 
                                         	<h1><a class="blog-ht">About</a></h1>
@@ -51,12 +52,12 @@
 											
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"> 
-                                         	 <%-- <%!AnnounceDAO adao = new AnnounceDAO();
-												List<AnnounceBean> list = adao.getAnnouncements();
-											 %> 
-											 <%
+                                         	<%--  <% 
+                                         	 	AnnounceDAO adao = new AnnounceDAO();
+												List<AnnounceBean> list = adao.getAnnouncements(); 
  												request.setAttribute("announcement", list);
- 										     %> --%>
+ 										     %>  --%> 
+ 										     
                                              <c:forEach items="${announcement}" var="announce">
                                             <div class="review-content-section">
                                                 <div class="chat-discussion" style="height: auto"> 

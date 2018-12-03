@@ -140,7 +140,8 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-10 col-md-12 col-sm-6 col-xs-12">
-                                        <div class="header-top-menu tabl-d-n">
+                                    <form action="adminPage" method="post">
+                                        <div class="header-top-menu tabl-d-n  ">
                                             <ul class="nav navbar-nav mai-top-nav">
                                                 <li class="nav-item"><a href="index.jsp" class="nav-link">Home</a>
                                                 </li>
@@ -152,12 +153,11 @@
                                                 </li>
                                                 <li class="nav-item"><a href="calendar.jsp" class="nav-link">Company Calendar</a>
                                                 </li> 
-                                                <li class="nav-item"><a href="login.jsp" class="nav-link">Logout</a>
-                                                </li>                                              
-                                            </ul>
+                                            </ul> 
+                                            <button class="btn btn-primary   waves-light " type="submit" name="submit" value="logout">Logout</button>
                                         </div>
-                                    </div>
-                                    
+                                     </form>
+                                    </div> 
                                 </div>
                             </div>
                         </div>
