@@ -14,7 +14,7 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                         <div class="hpanel widget-int-shape responsive-mg-b-30">
-                             <form action="adminPage" method="post"> 
+                           <form action="adminPage" method="post"> 
                             <Button name="submit" id="submit" value="adminListing">
                             <div class="panel-body">
                                 <div class="stats-title pull-left">
@@ -63,7 +63,7 @@
                         <div class="hpanel widget-int-shape responsive-mg-b-30">
                         
                         
-                           <form action="orgChart" method="post"> 
+                           <form action="policyPage" method="post" enctype="multipart/form-data"> 
 	                            <Button name="submit" id="submit" value="orgListing">
 	                            <div class="panel-body">
 	                                <div class="stats-title pull-left">

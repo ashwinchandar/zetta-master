@@ -7,8 +7,12 @@
 <!doctype html>
 <html class="no-js" lang="en">
 <%@ include file = "headerout.jsp" %>
+
  
-<body> 
+
+<body>
+	 
+	 
 		<!-- Single pro tab review Start-->
 		<div class="single-pro-review-area mt-t-30 mg-b-15">
 			<div class="container-fluid">
@@ -16,7 +20,7 @@
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 						<div class="product-payment-inner-st">
 							<ul id="myTabedu1" class="tab-review-design">
-								<center><li class="active"><a href="">Admin Directory</a></li></center>
+								<center><li class="active"><a href="">Organization Chart Listing</a></li></center>
 							</ul>
 
 							<div id="myTabContent" class="tab-content custom-product-edit">
@@ -39,32 +43,31 @@
 										</a>
 									</td> 
 									</table>
-										<div align="center"> 
+										<div align="center">
+											 
 											<table class="table">
 												<thead class="thead-dark">
 													<tr>
-														<th scope="col">Chart Title</th>
-														<th scope="col">File</th> 
+														<th scope="col">Title</th>
+														<th scope="col">Policy</th> 
 														<th scope="col">Actions</th>
 													</tr>
 												</thead>
 												<tbody>
-													<c:forEach var="orgs" items="${list}">
+													<c:forEach var="org" items="${list}">
 														<tr>
-															<td>${orgs.title}</td>
-															<td>${orgs.org_file}</td>
-															  
-															<%-- <td>
-																<form action="orgChart" method="post">
-																	<input type="hidden" id="orgid" name="adminid"
-																		value='${org.title}'>
+															<td>${org.title}</td>
+															<td>${org.policy}</td> 
+
+															<td>
+																<form action="policyPage" method="post">
+																	<input type="hidden" id="policyid" name="policyid" value='${org.policyid}'>
 																	<button class="btn btn-primary" type="submit" name="submit" value="edit">Edit</button>
 																</form>
-															</td> --%>
+															</td>
 															<td>
-																<form action="orgChart" method="post">
-																	<input type="hidden" id="orgid" name="adminid"
-																		value='${org.title}'>
+																<form action="policyPage" method="post">
+																	<input type="hidden" id="policyid" name="policyid" value='${org.policyid}'>
 																	<button class="btn btn-primary" type="submit" name="submit" value="delete">Delete</button>
 																</form>
 															</td>
@@ -80,8 +83,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
-	 
+		</div> 
 
 	<!-- jquery
 		============================================ -->
@@ -149,11 +151,7 @@
 	<!-- main JS
 		============================================ -->
 	<script src="js/main.js"></script>
-	<!-- tawk chat JS
-		============================================ -->
-	<script src="js/tawk-chat.js"></script>
+	 
 </body>
 
 </html>
-
- 

@@ -53,7 +53,6 @@ public class AdminDAO {
 		try {
 			con = DBConnection.getConnection();
 			ps = con.prepareStatement("update admin_register set admin_name=?,dob=?,department=?,designation=?,email=?,mobile=?,location=?,role=?,password1=? where admin_card_no =?");
-			
 			ps.setString(++count, ab.getName().trim());
 			ps.setDate(++count, new Date(DateUtil.getDateFromString(ab.getDob()).getTime()));
 			ps.setString(++count, ab.getDepartment());

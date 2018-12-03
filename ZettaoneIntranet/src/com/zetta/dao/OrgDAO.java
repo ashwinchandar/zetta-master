@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.zetta.bean.OrgBean;
+import com.zetta.bean.PolicyBean;
 import com.zetta.dbconnection.DBConnection;
 
 public class OrgDAO {
@@ -15,13 +15,13 @@ public class OrgDAO {
 	static Connection con;
 	static PreparedStatement ps;
 	
-	public void insertOrg(OrgBean ob) {
+	public void insertOrg(PolicyBean ob) {
 		int count=0;
 		try {
 			con = DBConnection.getConnection();
 			ps = con.prepareStatement("INSERT INTO org_chart (title,org_file) VALUES(?,?)");
 			ps.setString(++count, ob.getTitle());
-			ps.setString(++count, ob.getOrg_file());
+			/*ps.setString(++count, ob.getOrg_file());*/
 			ps.executeUpdate(); 
 			con.close();
 		} catch(Exception e) {
@@ -37,12 +37,12 @@ public class OrgDAO {
 		}
 	}
 	
-	public void updateOrg(OrgBean ob) {
+	public void updateOrg(PolicyBean ob) {
 		int count=0;
 		try {
 			con = DBConnection.getConnection();
 			ps = con.prepareStatement("UPDATE org_chart SET org_file=? WHERE title=?");
-			ps.setString(++count, ob.getOrg_file());
+			/*ps.setString(++count, ob.getOrg_file());*/
 			ps.setString(++count, ob.getTitle());
 			ps.executeUpdate();
 			con.close();
@@ -59,16 +59,16 @@ public class OrgDAO {
 		}
 	}
 
-	public List<OrgBean> getOrgs(){
-		List<OrgBean> list = new ArrayList<>(); 
+	public List<PolicyBean> getOrgs(){
+		List<PolicyBean> list = new ArrayList<>(); 
 		try {
 			con=DBConnection.getConnection(); 
 			ps=con.prepareStatement("SELECT * FROM org_chart");
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
-			OrgBean ob=new OrgBean();
+			PolicyBean ob=new PolicyBean();
 			ob.setTitle(rs.getString("title"));
-			ob.setOrg_file(rs.getString("org_file")); 
+			/*ob.setOrg_file(rs.getString("org_file")); */
 			list.add(ob);
 			}
 			con.close();
@@ -86,8 +86,8 @@ public class OrgDAO {
 		return list;
 	}
 	
-	public OrgBean editOrg(String orgid) {
-		 OrgBean ob=new OrgBean();
+	public PolicyBean editOrg(String orgid) {
+		 PolicyBean ob=new PolicyBean();
 		 try {
 			 con=DBConnection.getConnection();
 			 ps=con.prepareStatement("SELECT * FROM org_chart WHERE org_id=?");
@@ -95,7 +95,7 @@ public class OrgDAO {
 			 ResultSet rs=ps.executeQuery();
 			 while(rs.next()) {
 				 ob.setTitle(rs.getString("title"));
-				 ob.setOrg_file(rs.getString("org_file")); 
+				 /*ob.setOrg_file(rs.getString("org_file")); */
 			 }
 			 con.close();
 		 } catch(Exception e) {
@@ -112,8 +112,8 @@ public class OrgDAO {
 		return ob;
 	}
 	
-	public OrgBean deleteOrg(String orgid) {
-		OrgBean ob=new OrgBean();
+	public PolicyBean deleteOrg(String orgid) {
+		PolicyBean ob=new PolicyBean();
 		try {
 			con = DBConnection.getConnection();
 			ps = con.prepareStatement("DELETE FROM org_chart WHERE org_id=?");

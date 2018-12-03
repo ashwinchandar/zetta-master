@@ -50,16 +50,16 @@ CREATE TABLE public.employee_register
   CONSTRAINT employee_register_email_key UNIQUE (email),
   CONSTRAINT employee_register_emp_card_no_key UNIQUE (emp_card_no)
 );
-
-CREATE TABLE org_chart(
-org_id serial PRIMARY KEY,
-title CHARACTER(30),
-org_file bytea
-);
-
+  
 CREATE TABLE announcement(
 announce_id serial PRIMARY KEY,
 title CHARACTER VARYING(30),
 announcement CHARACTER VARYING(200),
-date TIMESTAMP WITH TIME ZONE
+date TIMESTAMP  
+);
+
+CREATE TABLE policycontainer(
+policy_id serial PRIMARY KEY,
+title CHARACTER(30),
+policy bytea
 );

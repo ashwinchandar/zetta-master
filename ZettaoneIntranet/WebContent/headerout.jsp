@@ -154,7 +154,7 @@
                                                 <li class="nav-item"><a href="calendar.jsp" class="nav-link">Company Calendar</a>
                                                 </li> 
                                             </ul> 
-                                            <button class="btn btn-primary   waves-light " type="submit" name="submit" value="logout">Logout</button>
+                                            <button class="btn btn-primary waves-light " type="submit" name="submit" value="logout">Logout</button>
                                         </div>
                                      </form>
                                     </div> 
