@@ -20,3 +20,20 @@ public class DateUtil {
 		  
 	}
 }
+
+
+Announcement 
+
+Max 3 Announce in Column.
+Show new Message at first.
+Show date of the message posted.
+
+Issue: Scriptlet error.
+
+File Upload and View in jsp page
+
+Admin only can upload .pdf file and they only can delete.
+.pdf file should view in general page.
+note: No one possible to download the pdf.
+
+Logout
