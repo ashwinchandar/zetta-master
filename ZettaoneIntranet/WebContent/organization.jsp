@@ -1,6 +1,11 @@
-<%@ page import="com.zetta.bean.AnnounceBean"%>
-<%@ page import="java.util.List"%>
-<%@ page import="com.zetta.dao.AnnounceDAO"%>
+<%@page import="com.zetta.dbconnection.DBConnection"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@ page import="java.util.List"%> 
+<%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.sql.DriverManager" %>
+<%@ page import="java.sql.Statement" %>
+<%@ page import="java.sql.PreparedStatement" %>
+<%@ page import="java.sql.Connection" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%> 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  
@@ -9,13 +14,25 @@
 <%@ include file = "header.jsp" %>
  
 <body> 
+<%
+	int fileid = Integer.parseInt(request.getParameter("id"));
+	  Connection con;
+	  PreparedStatement ps;
+	try{
+		con = DBConnection.getConnection();
+		ps = con.prepareStatement("SELECT filename FROM file_upload WHERE id=" + fileid + "");
+		ResultSet rs = ps.executeQuery();
+		while(rs.next()){
+			String filename = rs.getString("filename");
+		 %>
      
          <div class="pdf-viewer-area mg-b-15"><br />
             <div class="container-fluid">
                 <div class="row">  
                      <div class="col-lg-9 col-md-9 col-sm-12 col-xs-8">
+                      <h1><a class="blog-ht"><%=fileid%></a></h1> 
                         <div class="pdf-single-pro"> 
-                            <center><object class="media" data="pdf/organization-chart.PDF#toolbar=0" type="application/pdf" width=785" height="600"></object><br /><br /></center>
+                             <object class="media" data="pdf/<%=filename%>#toolbar=0" type="application/pdf" width=785" height="600"></object><br /><br />
                        	</div> 
                      </div> 
                      <div class="white-box analytics-info-cs mg-b-10 res-mg-b-30 res-mg-t-30 table-mg-t-pro-n tb-sm-res-d-n dk-res-t-d-n">
@@ -25,7 +42,12 @@
             </div>
         </div>
          
-           
+         <%
+		}
+	}catch(Exception e){
+		e.printStackTrace();
+	}  
+         %>  
 
     <!-- jquery
 		============================================ -->

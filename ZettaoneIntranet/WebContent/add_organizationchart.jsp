@@ -23,46 +23,15 @@
                                             <div class="review-content-section">
                                                 <div id="dropzone1" class="pro-ad">
                                                     <form action="policyPage" method="post" enctype="multipart/form-data" class="dropzone-custom needsclick add-professors" id="demo1-upload">
-                                                       	<p style="color:green" align="center">${orgmsg}</p>  
-														<script type="text/javascript">
-														function fileValidation(){
-														    var fileInput = document.getElementById('orgfile');
-														    var filePath = fileInput.value;
-														    var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
-														    if(!allowedExtensions.exec(filePath)){
-														        alert('Please upload file having extensions .jpeg/.jpg/.png/.gif only.');
-														        fileInput.value = '';
-														        return false;
-														    }else{
-														        //Image preview
-														        if (fileInput.files && fileInput.files[0]) {
-														            var reader = new FileReader();
-														            reader.onload = function(e) {
-														                document.getElementById('imagePreview').innerHTML = '<img src="'+e.target.result+'"/>';
-														            };
-														            reader.readAsDataURL(fileInput.files[0]);
-														        }
-														    }
-														}
-														</script>
+                                                       	<p style="color:green" align="center">${uploaded}</p>   
                                                         <div class="row">
                                                         
                                                         	<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12"></div> 
                                                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"> 
                                                             	<div class="form-group"> 
                                                               		  <input name="title" type="text" class="form-control" placeholder="Title" value="${pb.title}" required>
-                                                                </div>
-                                                                <!-- <div class="form-group alert-up-pd">
-                                                                    <div class="dz-message needsclick download-custom">
-                                                                        <i class="fa fa-download edudropnone" aria-hidden="true"></i>
-                                                                        <h2 class="edudropnone">Drop file here or click to upload.</h2>
-                                                                        <p class="edudropnone"><span class="note needsclick">( dropzone. Selected image is <strong>not</strong> actually uploaded.)</span>
-                                                                        </p>
-                                                                        <input name="orgfile" id="orgfile" type="file" class="hd-pro-img" onchange="return fileValidation(this)"/>
-                                                                    	
-                                                                    </div>
-                                                                </div> -->
-                                                                <input type="file" id="policy" name="policy"/>  <div id="imagePreview"></div>
+                                                                </div>   
+                                                                <input type="file" id="file" name="file"/>  <div id="imagePreview"></div>
                                                             </div>
                                                             <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12"></div>
                                                             
@@ -70,7 +39,7 @@
                                                         <div class="row">
                                                             <div class="col-lg-12"> 
                                                                 <div class="payment-adress"> 
-                                                                     <button class="btn btn-primary waves-effect waves-light" type="submit" name="submit" value="save">Upload</button>
+                                                                     <button class="btn btn-primary waves-effect waves-light" type="submit" name="submit" value="Upload">Upload</button>
                                 									<button class="btn btn-primary waves-effect waves-light" type="reset" name="reset" value="reset">Clear</button>
                                                                 </div>
                                                             </div>
