@@ -73,11 +73,10 @@
 
 
 															<td>
-																<form action="adminPage" method="post">
-																	<input type="hidden" id="adminid" name="adminid"
-																		value='${details.admin_card_no}'>
+																<a href="/user/edit?id=${details.admin_card_no}">
+																	<input type="hidden" id="adminid" name="adminid" value=''>
 																	<button class="btn btn-primary" type="submit" name="submit" value="edit">Edit</button>
-																</form>
+																</a>
 															</td>
 															<td>
 																<form action="adminPage" method="post">

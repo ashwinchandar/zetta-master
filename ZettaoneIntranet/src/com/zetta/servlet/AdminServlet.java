@@ -26,10 +26,10 @@ public class AdminServlet extends HttpServlet {
 		String adminid = request.getParameter("admin_card_no");
 		String password = request.getParameter("password1");
 		String submitType = request.getParameter("submit");
-		System.out.println("SubmitType"+submitType);
+		/*System.out.println("SubmitType"+submitType);*/
 		AdminDAO adao = new AdminDAO(); 
 		if("login".equals(submitType)){ 
-			AdminBean ab = adao.getAdmin(adminid, password); 
+			AdminBean ab = adao.getAdmin(adminid, password);
 			session.setAttribute("role", ab.getRole());
 			//System.out.println("test");
 			if(ab != null) {
