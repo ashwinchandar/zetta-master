@@ -40,6 +40,7 @@ public class EmployeeServlet extends HttpServlet {
 		edao.insertEmployee(eb);
 		request.setAttribute("empsucmsg", "Employee Added Successfully");
 		request.getRequestDispatcher("add_employee.jsp").forward(request, response);
+		
 		} else if(submitType.equals("editemployee")) {
 		EmployeeBean eb = new EmployeeBean();
 		eb.setEmp_card_no(employeeid); 
@@ -53,18 +54,21 @@ public class EmployeeServlet extends HttpServlet {
 		edao.updateEmployee(eb);
 		request.setAttribute("empsucmsg", "Employee Modified Successfully");
 		request.getRequestDispatcher("editEmployee.jsp").forward(request, response);
+		
 		} else if(submitType.equals("edit")) {
 			String employeeid1 = request.getParameter("employeeid");
 			EmployeeBean eb = edao.editEmployee(employeeid1); 
 			request.setAttribute("eb", eb);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("editEmployee.jsp");
 			dispatcher.forward(request, response);
+			
 		} else if(submitType.equals("employeeListing")) {
 			List<EmployeeBean> list = edao.getEmployees();
 			//System.out.println("listing"+list.size()); 
 			request.setAttribute("list", list);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("employeeListing.jsp");
 			dispatcher.forward(request, response); 
+			
 		} else if(submitType.equals("delete")) {
 			String employeeid1 = request.getParameter("employeeid");
 			edao.deleteEmployee(employeeid1);

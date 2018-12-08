@@ -63,9 +63,8 @@ public class AdminDAO {
 			ps.setString(++count, ab.getRole().trim());
 			ps.setString(++count, ab.getPassword1().trim()); 
 			ps.setString(++count, ab.getAdmin_card_no());
-			//System.out.println("psupdate: "+ps.toString());
-			ps.executeUpdate();
-			
+			System.out.println("UpdateDAO: "+ps.toString());
+			ps.executeUpdate(); 
 			con.close(); 
 		} catch(Exception e) {
 			e.printStackTrace();
